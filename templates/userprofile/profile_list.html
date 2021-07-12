@@ -1,0 +1,45 @@
+{% extends "../base.html" %}
+
+{% block title %}
+    ViewIndia | Profile
+{% endblock %}
+
+{% block content %}
+   
+
+{% for profile in profile_list %}
+    <!-- <h1>{{profile.phone_no}}</h1> -->
+
+
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div class="col-10 col-sm-8 col-lg-6">
+            <img src="/media/{{profile.profileimg}}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+          </div>
+          <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">{{profile.user}}</h1>
+            <p class="lead">
+                Phone No: {{profile.phone_no}}
+            </p>
+            <p class="lead">
+                Date of Birth: {{profile.dob}}
+            </p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+              <a type="button" href="/profile/edit/{{user.profile.id}}" class="btn btn-primary btn-lg px-4 me-md-2">Edit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+{% endfor %}
+    
+{% endblock %}

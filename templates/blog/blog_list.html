@@ -1,0 +1,45 @@
+{% extends "../base.html" %}
+
+{% block title %}
+    ViewIndia | Blogs
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+
+      {% for blog in blog_list %}
+        <div class="col-md-6 col-lg-4 my-3">
+            <div class="card">
+                <img src="/media/{{blog.img}}" class="card-img-top" alt="..." style="height: 200px;">
+                <div class="card-body">
+                  <h6 class="card-title">{{blog.title}}</h6> 
+                  <p>{{blog.last_edit}}<p>
+                  <a href="/blog/{{blog.id}}" class="btn btn-primary">Read More</a>
+
+                  {% if user.is_authenticated %}
+                    {% if user == blog.user %}
+                    <a href="/blog/editblog/{{blog.id}}" class="btn btn-success">Edit</a>
+                    <span class="ms-auto">status: <span class="text-uppercase text-primary">{{blog.status}}</span></span>
+                    {% endif%}
+                  {% endif %}   
+                </div>
+              </div>
+        </div>
+      {% endfor %}
+
+        
+
+        
+
+        
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}
